@@ -3,6 +3,9 @@
 @section('content')
     <x-container>
         <div class="col-12">
+            <form action="{{ route('admin.product.index') }}" method="GET">
+                <x-search name="search" :value="$search" />
+            </form>
             @can('create-product')
                 <x-button-link title="Tambah Barang" icon="plus" class="btn btn-primary mb-3" style="mr-1" :url="route('admin.product.create')" />
             @endcan
@@ -11,9 +14,8 @@
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>Foto</th>
+                            {{-- <th>Foto</th> --}}
                             <th>Nama Barang</th>
-                            <th>Nama Supplier</th>
                             <th>Kategori Barang</th>
                             <th>Satuan</th>
                             <th>Aksi</th>
@@ -23,12 +25,11 @@
                         @foreach ($products as $i => $product)
                             <tr>
                                 <td>{{ $i + $products->firstItem() }}</td>
-                                <td>
+                                {{-- <td>
                                     <span class="avatar rounded avatar-md"
                                         style="background-image: url({{ $product->image }})"></span>
-                                </td>
+                                </td> --}}
                                 <td>{{ $product->name }}</td>
-                                <td>{{ $product->supplier->name }}</td>
                                 <td>{{ $product->category->name }}</td>
                                 <td>{{ $product->unit }}</td>
                                 <td>

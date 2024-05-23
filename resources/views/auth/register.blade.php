@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Register - Inventory System</title>
+    <title>Register - Login - Persediaan Barang Dinas Kesehatan Belitung Timur</title>
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
     <meta name="msapplication-TileColor" content="#206bc4" />
     <meta name="theme-color" content="#206bc4" />
@@ -28,7 +28,7 @@
                 @csrf
                 <div class="card-body">
                     <h3 class="text-center mb-3 font-weight-medium">
-                        Daftar
+                        Silahkan melakukan pendaftaran terlebih dahulu untuk mengajukan permintaan barang.
                     </h3>
                     <div class="mb-3">
                         <label class="form-label">Nama</label>
@@ -51,16 +51,12 @@
                         @enderror
                     </div>
                     <div class="mb-3">
-                        <label class="form-label">Seksi</label>
+                        <label class="form-label">Seksi / Bidang</label>
                         <select class="form-select @error('department') is-invalid @enderror" name="department">
                             <option value="" selected>Silahkan Pilih</option>
-                            <option value="Umum">Umum</option>
-                            <option value="Hukum dan Informasi">Hukum dan Informasi</option>
-                            <option value="Lelang">Lelang</option>
-                            <option value="Kepatuhan Internal">Kepatuhan Internal</option>
-                            <option value="Pengelola Kekayaan Negara">Pengelola Kekayaan Negara</option>
-                            <option value="Piutang Negara">Piutang Negara</option>
-                            <option value="Penilaian">Penilaian</option>
+                            <option value="Pelayanan Kesehatan">Pelayanan Kesehatan</option>
+                            <option value="Kesehatan Masyarakat">Kesehatan masyarakat</option>
+                            <option value="P2P">P2P</option>
                         </select>
                         @error('department')
                             <div class="invalid-feedback">

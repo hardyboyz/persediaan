@@ -3,15 +3,17 @@
 @section('content')
     <x-container>
         <div class="col-12">
-            <x-card title="DAFTAR PRODUK" class="card-body p-0">
+            <form action="{{ route('admin.stock.index') }}" method="GET">
+                <x-search name="search" :value="$search" />
+            </form>
+            <x-card title="DAFTAR STOK BARANG" class="card-body p-0">
                 <x-table>
                     <thead>
                         <tr>
                             <th>#</th>
                             <th>Foto</th>
-                            <th>Nama Produk</th>
-                            <th>Nama Supplier</th>
-                            <th>Kategori Produk</th>
+                            <th>Nama Barang</th>
+                            <th>Kategori</th>
                             <th>Satuan</th>
                             <th>Stok</th>
                             <th>Aksi</th>
@@ -26,7 +28,6 @@
                                         style="background-image: url({{ $product->image }})"></span>
                                 </td>
                                 <td>{{ $product->name }}</td>
-                                <td>{{ $product->supplier->name }}</td>
                                 <td>{{ $product->category->name }}</td>
                                 <td>{{ $product->unit }}</td>
                                 <td>{{ $product->quantity }}</td>

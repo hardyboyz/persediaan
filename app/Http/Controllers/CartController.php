@@ -51,6 +51,7 @@ class CartController extends Controller
             $cart->update([
                 'quantity' => $request->quantity,
             ]);
+            
             return back()->with('toast_success', 'Jumlah produk berhasil diubah');
         }
     }

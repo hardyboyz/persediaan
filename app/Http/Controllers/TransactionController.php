@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cart;
+use App\Models\Order;
 use App\Models\Product;
 use App\Models\Transaction;
 use Illuminate\Support\Str;
@@ -14,6 +15,22 @@ class TransactionController extends Controller
 {
     public function store()
     {
+        $carts = Cart::where('user_id', Auth::id())->with('product')->get();
+        foreach($carts as $cart){
+            Order::create([
+                'user_id' => Auth::id(),
+                'product_id' => $cart->product_id,
+                'quantity' => $cart->quantity,
+                'name'=> $cart->product->name,
+                'unit'  => $cart->product->unit,
+            ]);
+            // Product::whereId($cart->product_id)->decrement('quantity', $cart->quantity);
+        }
+
+        Cart::where('user_id', Auth::id())->delete();
+        return redirect(route('landing'))->with('toast_success', 'Terimakasih pesanan anda akan segera di proses');
+        // exit;
+
         $length = 8;
         $random = '';
 

@@ -172,7 +172,7 @@
                             </span>
                         </a>
                     </li>
-                    <div class="hr-text hr-text-left ml-2 mb-2 mt-2">Menu</div>
+                    <div class="hr-text hr-text-left ml-2 mb-2 mt-2">Data Barang</div>
                     @can('index-category')
                         <li class="nav-item">
                             <a class="nav-link {{ Route::is('admin.category*') ? 'active' : '' }}"
@@ -189,26 +189,6 @@
                                 </span>
                                 <span class="nav-link-title">
                                     Kategori
-                                </span>
-                            </a>
-                        </li>
-                    @endcan
-                    @can('index-supplier')
-                        <li class="nav-item">
-                            <a class="nav-link {{ Route::is('admin.supplier*') ? 'active' : '' }}"
-                                href="{{ route('admin.supplier.index') }}">
-                                <span class="nav-link-icon d-md-none d-lg-inline-block mr-1">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-truck"
-                                        width="24" height="24" viewBox="0 0 24 24" stroke-width="2"
-                                        stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                        <circle cx="7" cy="17" r="2"></circle>
-                                        <circle cx="17" cy="17" r="2"></circle>
-                                        <path d="M5 17h-2v-11a1 1 0 0 1 1 -1h9v12m-4 0h6m4 0h2v-6h-8m0 -5h5l3 5"></path>
-                                    </svg>
-                                </span>
-                                <span class="nav-link-title">
-                                    Supplier
                                 </span>
                             </a>
                         </li>
@@ -258,7 +238,6 @@
                             </a>
                         </li>
                     @endcan --}}
-                    <div class="hr-text hr-text-left ml-2 mb-2 mt-2">Stok Produk</div>
                     <li class="nav-item">
                         <a class="nav-link {{ Route::is('admin.stock*') ? 'active' : '' }}"
                             href="{{ route('admin.stock.index') }}">
@@ -280,7 +259,7 @@
                                 </svg>
                             </span>
                             <span class="nav-link-title">
-                                Stok Produk
+                                Stok Barang
                             </span>
                         </a>
                     </li>
@@ -371,7 +350,7 @@
                         </a>
                     </li> --}}
                     <div class="hr-text hr-text-left ml-2 mb-2 mt-2">User Manajemen</div>
-                    <li class="nav-item">
+                    {{-- <li class="nav-item">
                         <a class="nav-link {{ Route::is('admin.permission*') ? 'active' : '' }}"
                             href="{{ route('admin.permission.index') }}">
                             <span class="nav-link-icon d-md-none d-lg-inline-block mr-1">
@@ -426,8 +405,8 @@
                                 User
                             </span>
                         </a>
-                    </li>
-                    <div class="hr-text hr-text-left ml-2 mb-2 mt-2">Konfigurasi</div>
+                    </li> 
+                    <div class="hr-text hr-text-left ml-2 mb-2 mt-2">Konfigurasi</div>--}}
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('admin.setting.index') }}">
                             <span class="nav-link-icon d-md-none d-lg-inline-block mr-1">

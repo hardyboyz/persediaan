@@ -26,19 +26,19 @@ class ProductRequest extends FormRequest
         if(request()->isMethod('POST')){
             $data = [
                 'name' => 'required|unique:categories',
-                'image' => 'required|mimes:png,jpg,jpeg|max:2048',
+                'image' => 'nullable|mimes:png,jpg,jpeg|max:2048',
                 'category_id' => 'required',
-                'supplier_id' => 'required',
-                'description' => 'required',
+                'supplier_id' => 'nullable',
+                'description' => 'nullable',
                 'unit' => 'required',
             ];
         }elseif(request()->isMethod('PUT')){
             $data = [
                 'name' => 'required','unique:categories,name'.$this->id,
-                'image' => 'mimes:png,jpg,jpeg|max:2048',
+                'image' => 'nullable|mimes:png,jpg,jpeg|max:2048',
                 'category_id' => 'required',
-                'supplier_id' => 'required',
-                'description' => 'required',
+                'supplier_id' => 'nullable',
+                'description' => 'nullable',
                 'unit' => 'required',
             ];
         }

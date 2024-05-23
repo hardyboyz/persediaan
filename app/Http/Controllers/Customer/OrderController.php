@@ -39,13 +39,13 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        $image = $this->uploadImage($request, $path = 'public/orders/', $name = 'image');
+        // $image = $this->uploadImage($request, $path = 'public/orders/', $name = 'image');
 
         Order::create([
             'user_id' => Auth::id(),
             'name' => $request->name,
             'quantity' => $request->quantity,
-            'image' => $image->hashName(),
+            // 'image' => $image->hashName(),
             'unit' => $request->unit,
         ]);
 

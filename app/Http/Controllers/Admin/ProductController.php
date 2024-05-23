@@ -20,11 +20,15 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $products = Product::paginate(10);
+        // $products = Product::paginate(2);
+        $search = $request->search;
 
-        return view('admin.product.index', compact('products'));
+        $products = Product::when($search, function($query) use($search){
+            $query = $query->where('name', 'like', '%'.$search.'%');
+        })->paginate(10)->withQueryString();
+         return view('admin.product.index', compact('products','search'));
     }
 
     /**
@@ -49,13 +53,13 @@ class ProductController extends Controller
      */
     public function store(ProductRequest $request)
     {
-        $image = $this->uploadImage($request, $path = 'public/products/', $name = 'image');
+        // $image = $this->uploadImage($request, $path = 'public/products/', $name = 'image');
 
         Product::create([
             'category_id' => $request->category_id,
             'supplier_id' => $request->supplier_id,
             'name' => $request->name,
-            'image' => $image->hashName(),
+            'image' => '',
             'unit' => $request->unit,
             'description' => $request->description,
         ]);

@@ -68,13 +68,13 @@
                                     <button
                                         class="text-gray-700 bg-gray-200 p-2 rounded-lg text-sm text-center hover:bg-gray-300 w-full"
                                         type="submit">
-                                        Tambah ke keranjang
+                                        Ajukan permintaan barang
                                     </button>
                                 </form>
                             @else
                                 <button
                                     class="text-gray-700 bg-gray-200 p-2 rounded-lg text-sm text-center hover:bg-gray-300 w-full cursor-not-allowed">
-                                    Barang Tidak Tersedia
+                                    Stok Kosong
                                 </button>
                             @endif
                         </div>

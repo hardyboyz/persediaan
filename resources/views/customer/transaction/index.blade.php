@@ -11,7 +11,7 @@
                             <th>Invoice</th>
                             <th>Nama Produk</th>
                             <th>Kategori Produk</th>
-                            <th>Kuantitas</th>
+                            <th>Quantity</th>
                         </tr>
                     </thead>
                     <tbody>

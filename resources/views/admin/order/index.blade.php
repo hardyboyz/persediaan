@@ -3,30 +3,39 @@
 @section('content')
     <x-container>
         <div class="col-12">
+            <form action="{{ route('admin.order.index') }}" method="GET">
+                <x-search name="search" :value="$search" />
+            </form>
             <x-card title="DAFTAR PERMINTAAN BARANG" class="card-body p-0">
                 <x-table>
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>Foto</th>
+                            {{-- <th>Foto</th> --}}
+                            <th>Tanggal</th>
                             <th>Nama Barang</th>
-                            <th>Kuantitas</th>
+                            <th>Quantity</th>
                             <th>Satuan</th>
+                            <th>Pengguna Barang</th>
+                            <th>Bagian</th>
                             <th>Status</th>
-                            <th>Aksi</th>
+                            <th>_</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($orders as $i => $order)
                             <tr>
                                 <td>{{ $i + $orders->firstItem() }}</td>
-                                <td>
+                                {{-- <td>
                                     <span class="avatar rounded avatar-md"
                                         style="background-image: url({{ $order->image }})"></span>
-                                </td>
+                                </td> --}}
+                                <td>{{ date('d M Y H:i', strtotime($order->created_at)) }}</td>
                                 <td>{{ $order->name }}</td>
                                 <td>{{ $order->quantity }}</td>
                                 <td>{{ $order->unit }}</td>
+                                <td>{{ $order->user?->name }}</td>
+                                <td>{{ $order->user?->department }}</td>
                                 <td
                                     class="{{ $order->status == App\Enums\OrderStatus::Pending ? 'text-danger' : 'text-success' }}">
                                     {{ $order->status->value }}
@@ -38,7 +47,7 @@
                                             @method('PUT')
                                             <x-button-save title="Konfirmasi" icon="check" class="btn btn-primary btn-sm" />
                                         </form>
-                                    @elseif($order->status == App\Enums\OrderStatus::Verified)
+                                    {{-- @elseif($order->status == App\Enums\OrderStatus::Verified)
                                         <x-button-modal :id="$order->id" title="Tambahkan Permintaan" icon="plus"
                                             style="mr-1" class="btn btn-info btn-sm" />
                                         <x-modal :id="$order->id" title="Tambahkan Barang">
@@ -87,7 +96,7 @@
                                                 </x-textarea>
                                                 <x-button-save title="Simpan" icon="save" class="btn btn-primary" />
                                             </form>
-                                        </x-modal>
+                                        </x-modal> --}}
                                     @endif
                                 </td>
                             </tr>
